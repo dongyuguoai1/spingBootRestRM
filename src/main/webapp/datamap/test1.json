@@ -1,0 +1,221 @@
+{
+    "data": [
+        {
+            "categoryId": "teststesttesttest",
+            "code": "teststesttesttest",
+            "createPerson": "teststesttesttest",
+            "createTime": "2018-05-18T00:50:58.260Z",
+            "description": "teststesttesttest",
+            "enName": "teststesttesttest",
+            "fields": [
+                {
+                    "code": "teststesttesttest",
+                    "comments": "teststesttesttest",
+                    "defaultValue": "teststesttesttest",
+                    "defination": "teststesttesttest",
+                    "enName": "teststesttesttest",
+                    "id": "teststesttesttest",
+                    "maxContains": 0,
+                    "maxsize": 0,
+                    "name": "teststesttesttest",
+                    "primary": true,
+                    "pxh": 0,
+                    "range": "teststesttesttest",
+                    "required": true,
+                    "security": 0,
+                    "type": "teststesttesttest",
+                    "unique": true
+                }
+            ],
+            "id": "teststesttesttest",
+            "name": "teststesttesttest",
+            "registerStatus": "teststesttesttest",
+            "type": 0,
+            "updatePerson": "teststesttesttest",
+            "updateTime": "2018-05-18T00:50:58.260Z",
+            "version": "teststesttesttest"
+        },
+        {
+            "categoryId": "11111",
+            "code": "111111",
+            "createPerson": "1",
+            "createTime": "2018-05-18T00:50:58.260Z",
+            "description": "11111111",
+            "enName": "1111111111111"
+        },
+        {
+            "categoryId": "22222",
+            "code": "11122111",
+            "createPerson": "1",
+            "createTime": "2018-05-18T00:50:58.260Z",
+            "description": "222222",
+            "enName": "222222222"
+        },
+        {
+            "categoryId": "33333",
+            "code": "33333",
+            "createPerson": "1",
+            "createTime": "2018-05-18T00:50:58.260Z",
+            "description": "33333",
+            "enName": "3333333333333"
+        },
+        {
+            "categoryId": "4444444444444",
+            "code": "444444444",
+            "createPerson": "1",
+            "createTime": "2018-05-18T00:50:58.260Z",
+            "description": "4444444444",
+            "enName": "44444444444"
+        },
+        {
+            "categoryId": "55555555555",
+            "code": "55555555555",
+            "createPerson": "1",
+            "createTime": "2018-05-18T00:50:58.260Z",
+            "description": "5555555555555",
+            "enName": "5555555555555555"
+        },
+        {
+            "categoryId": "66666666666666666",
+            "code": "66666666666666666",
+            "createPerson": "1",
+            "createTime": "2018-05-18T00:50:58.260Z",
+            "description": "666666",
+            "enName": "66666666666666666"
+        },
+        {
+            "categoryId": "7777777777777",
+            "code": "7777777",
+            "createPerson": "1",
+            "createTime": "2018-05-18T00:50:58.260Z",
+            "description": "77777",
+            "enName": "777777777777777777"
+        },
+        {
+            "categoryId": "88888888888",
+            "code": "88888888888",
+            "createPerson": "1",
+            "createTime": "2018-05-18T00:50:58.260Z",
+            "description": "888888888888",
+            "enName": "888888"
+        },
+        {
+            "categoryId": "99",
+            "code": "9",
+            "createPerson": "1",
+            "createTime": "2018-05-18T00:50:58.260Z",
+            "description": "99999999999999",
+            "enName": "9999999999999999999"
+        },
+        {
+            "categoryId": "aaaaaaaaaaa",
+            "code": "aaaaaaaaaaa",
+            "createPerson": "aaaaaaaaaaa",
+            "createTime": "2018-05-18T00:50:58.260Z",
+            "description": "aaaaaaaaaaa",
+            "enName": "aaaaaaaaaaa",
+            "fields": [
+                {
+                    "code": "aaaaaaaaaaa",
+                    "comments": "aaaaaaaaaaa",
+                    "defaultValue": "aaaaaaaaaaa",
+                    "defination": "aaaaaaaaaaa",
+                    "enName": "aaaaaaaaaaa",
+                    "id": "aaaaaaaaaaa",
+                    "maxContains": 0,
+                    "maxsize": 0,
+                    "name": "aaaaaaaaaaa",
+                    "primary": true,
+                    "pxh": 0,
+                    "range": "aaaaaaaaaaa",
+                    "required": true,
+                    "security": 0,
+                    "type": "aaaaaaaaaaa",
+                    "unique": true
+                }
+            ],
+            "id": "aaaaaaaaaaa",
+            "name": "aaaaaaaaaaa",
+            "registerStatus": "aaaaaaaaaaa",
+            "type": 0,
+            "updatePerson": "aaaaaaaaaaa",
+            "updateTime": "2018-05-18T00:50:58.260Z",
+            "version": "aaaaaaaaaaa"
+        },
+        {
+            "categoryId": "bbbbbbbbbbbbbbbbbbbb",
+            "code": "bbbbbbbbbbbbbbbbbbbb",
+            "createPerson": "bbbbbbbbbbbbbbbbbbbb",
+            "createTime": "2018-05-18T00:50:58.260Z",
+            "description": "bbbbbbbbbbbbbbbbbbbb",
+            "enName": "bbbbbbbbbbbbbbbbbbbb",
+            "fields": [
+                {
+                    "code": "bbbbbbbbbbbbbbbbbbbb",
+                    "comments": "bbbbbbbbbbbbbbbbbbbb",
+                    "defaultValue": "bbbbbbbbbbbbbbbbbbbb",
+                    "defination": "bbbbbbbbbbbbbbbbbbbb",
+                    "enName": "bbbbbbbbbbbbbbbbbbbb",
+                    "id": "bbbbbbbbbbbbbbbbbbbb",
+                    "maxContains": 0,
+                    "maxsize": 0,
+                    "name": "bbbbbbbbbbbbbbbbbbbb",
+                    "primary": true,
+                    "pxh": 0,
+                    "range": "bbbbbbbbbbbbbbbbbbbb",
+                    "required": true,
+                    "security": 0,
+                    "type": "bbbbbbbbbbbbbbbbbbbb",
+                    "unique": true
+                }
+            ],
+            "id": "bbbbbbbbbbbbbbbbbbbb",
+            "name": "bbbbbbbbbbbbbbbbbbbb",
+            "registerStatus": "bbbbbbbbbbbbbbbbbbbb",
+            "type": 0,
+            "updatePerson": "bbbbbbbbbbbbbbbbbbbb",
+            "updateTime": "2018-05-18T00:50:58.260Z",
+            "version": "bbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+            "categoryId": "ccccccccccccccccc",
+            "code": "ccccccccccccccccc",
+            "createPerson": "ccccccccccccccccc",
+            "createTime": "2018-05-18T00:50:58.260Z",
+            "description": "ccccccccccccccccc",
+            "enName": "ccccccccccccccccc",
+            "fields": [
+                {
+                    "code": "ccccccccccccccccc",
+                    "comments": "ccccccccccccccccc",
+                    "defaultValue": "ccccccccccccccccc",
+                    "defination": "ccccccccccccccccc",
+                    "enName": "ccccccccccccccccc",
+                    "id": "ccccccccccccccccc",
+                    "maxContains": 0,
+                    "maxsize": 0,
+                    "name": "ccccccccccccccccc",
+                    "primary": true,
+                    "pxh": 0,
+                    "range": "ccccccccccccccccc",
+                    "required": true,
+                    "security": 0,
+                    "type": "ccccccccccccccccc",
+                    "unique": true
+                }
+            ],
+            "id": "ccccccccccccccccc",
+            "name": "ccccccccccccccccc",
+            "registerStatus": "ccccccccccccccccc",
+            "type": 0,
+            "updatePerson": "ccccccccccccccccc",
+            "updateTime": "2018-05-18T00:50:58.260Z",
+            "version": "ccccccccccccccccc"
+        }
+    ],
+    "message": "teststesttesttest",
+    "otherData": [
+        {}
+    ],
+    "resultCode": "RESULT_SUCCESS"
+}

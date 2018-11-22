@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<span style="font-size:12px;"><!--表格树引用的js -->  
+    <script type="text/javascript" src="../js/jquery.min.js"></script>  
+    <script type="text/javascript" src="../js/ztree/jquery.ztree.core.js"></script>  
+    <script type="text/javascript" src="../js/ztree/jquery.ztree.excheck.js"></script>  
+    <script type="text/javascript" src="../js/ztree/jquery.ztree.exedit.js"></script>  
+    <link rel="stylesheet" href="../css/ztree/zTreeStyle.css" type="text/css"></span>  
+
+<title>ztree click</title>
+
+<span style="font-size:12px;"> </span>  
+<span style="font-size:12px;">自己可以去下载文档，然后根据位置引用文件，不要搞忘哦→_→</span>  
+</head>
+<body>
+<span style="font-size:14px;">css我就直接写在里面了，有的样式没写，嫌麻烦→_→自己调整</span>
+
+<span style="font-size:14px;"> </span><span style="font-size:14px;font-weight: normal;"><div class="tab-content" style="min-width: 376px; height: 258px; float: left; overflow: hidden; margin: -8px 0 0 0; padding: 0;">  
+                        <!--知识库左边树形结构 -->  
+                        <div class="tab_content_ztree" style=" width: 170px; height: 260px;overflow: auto;color: yellow;float: left;">  
+                            <ul id="demoZtree" class="ztree">  
+                                <li>111</li>  
+                            </ul>  
+                        </div>  
+                        <!--知识库右边→_→说明 -->  
+                        <div class="tab_content_ztree_explain" style="  width: 183px;  
+            height: 250px;  
+            overflow: auto;  
+            color: #7e7e7e;  
+            float: left;  
+            border-left: 1px solid #E2E2E5;  
+            padding: 4px;  
+            font-size: 12px;  
+            line-height: 14px;">  
+                            <p><b id="tab_content_ztree_explain_title">参考答案</b> </p>  
+                            <p id="tab_content_ztree_explain">  
+                                 <frame src="share002_tree.do" name="treeFrame" id="treeFrame" frameborder="0" scrolling="auto" noresize="noresize" marginwidth="0" marginheight="0" />  
+                                 
+                  
+                            </p>  
+                        </div>  
+                    </div></span>  
+                    
+                    
+<script> 
+//这部分是直接创建的ztree树结构，当然还可以动态创建，~~~~(>_<)~~~~  
+$(function(){  
+    var zNodes = [  
+ { "id":0, "name":"供热质量",  
+     children: [  
+     { "id":1, "name":"供热系统"},  
+     { "id":2, "name":"供热设施"},  
+     { "id":3, "name":"用热户"}  
+     ]  
+ },  
+ { "id":4, "name":"服务质量",  
+     children: [  
+   { "id":5, "name":"供热温度"},  
+   { "id":6, "name":"用户室温检测"},  
+   { "id":7, "name":"供热水质"}  
+     ]  
+ },  
+  { "id":8, "name":"报修",  
+      children: [  
+    { "id":9, "name":"test3"},  
+    { "id":10, "name":"test4"},  
+    { "id":11, "name":"test5"}  
+      ]  
+  },  
+   { "id":12, "name":"咨询",  
+       children: [  
+     { "id":13, "name":"test3"},  
+     { "id":14, "name":"test4"},  
+     { "id":15, "name":"test5"}  
+       ]  
+   },  
+   { "id":16, "name":"建议",  
+       children: [  
+     { "id":17, "name":"test3"},  
+     { "id":18, "name":"test4"},  
+     { "id":19, "name":"test5"}  
+       ]  
+   },  
+    ]  
+   
+    //模拟数据  
+    var MoNidata = [  
+        [   
+            {"optionKey":"1", "optionValue":"Canon in D"},   
+            {"optionKey":"2", "optionValue":"Wind Song"},   
+            {"optionKey":"3", "optionValue":"Wings"}   
+        ]   
+    ]  
+    //ztree子节点点击事件
+    var datajson = new Object();
+    function zTreeOnClick(event, treeId, treeNode) {  
+        // alert(treeNode.tId + ", " + treeNode.name);  
+        $("#eventProblemDesc1").html(treeNode.name);  
+         
+       //插入节点到右边的框内   $("#tab_content_ztree_explain").html(treeNode.name+':');  
+        //利用ajax获取ztree对应节点的信息  
+        $.ajax({   
+            type:"GET",   
+            url:"../ztreeTest/music.txt", //从服务器拿东西，地址自己写  
+            dataType:"text",  
+            //下面这个函数是在ajax请求成功后才执行的，其中的参数data，就是
+            //请求到的数据（服务器对ajax请求做出的响应），即music.txt中的数据
+            success:function(data){   
+                //利用Selected获取 zTree 当前被选中的节点数据集合（下面两个语句根据ztreeAPI写的）  
+                var treeObj = $.fn.zTree.getZTreeObj("demoZtree");  
+                var nodes = treeObj.getSelectedNodes();  
+              datajson = JSON.parse(data);
+               // console.log(nodes); 下面通过ID对比循环判断，把txt里面的json数据的id拿来和树的id进行比较  
+                for (var i = 0; i < datajson.length; i++) {  
+                    var item = datajson[i];  
+                    if(item.id == nodes[0].id){  
+                       // alert(item.name);  
+                            var music="<p>";   
+                           music+=item.answer+"</p>";   
+                            $('#tab_content_ztree_explain').html(music); //把json里想要的值赋给变量music，然后插入到div中  
+
+                    }  
+                }  
+                 
+            }   
+        });   
+        return false;   
+
+    };  
+
+     
+//ztree设置常规的东西  
+    var setting = {  
+        callback: {  
+            onClick: zTreeOnClick  
+        },  
+
+        view:{showLine:true, showIcon: false}  
+
+      
+          
+    };  
+
+    $.fn.zTree.init($("#demoZtree"), setting, zNodes);  
+
+});  
+</script> 
+
+
+</body>
+</html>

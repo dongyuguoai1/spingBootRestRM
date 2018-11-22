@@ -1,0 +1,80 @@
+{
+    "resultCode": "RESULT_SUCCESS",
+    "data": [
+        {
+            "id": "092f27cf5d4da3fa17eb1189bc6defa8",
+            "code": "tb18042802",
+            "enName": "tb18042802",
+            "name": "tb18042802",
+            "type": 0,
+            "createTime": "2018-04-28 08:54:12",
+            "createPerson": "admin",
+            "updateTime": null,
+            "updatePerson": null,
+            "description": "tb18042802",
+            "version": "20180428_001",
+            "registerStatus": "注册审批中",
+            "categoryId": "1513345907776",
+            "fields": [
+                {
+                    "id": "232rasdsad",
+                    "code": "标准测试1",
+                    "name": "标准测试1",
+                    "enName": "标准测试",
+                    "required": false,
+                    "unique": false,
+                    "defaultValue": "",
+                    "maxsize": 256,
+                    "type": "STRING",
+                    "primary": false,
+                    "pxh": 128,
+                    "range": null,
+                    "defination": null,
+                    "maxContains": 1,
+                    "comments": null,
+                    "security": 1
+                },
+                {
+                    "id": "fa154aff26f449d189233ca196560141",
+                    "code": "name",
+                    "name": "name",
+                    "enName": "name",
+                    "required": false,
+                    "unique": false,
+                    "defaultValue": "",
+                    "maxsize": 256,
+                    "type": "STRING",
+                    "primary": false,
+                    "pxh": 128,
+                    "range": null,
+                    "defination": null,
+                    "maxContains": 1,
+                    "comments": null,
+                    "security": 3
+                },
+                {
+                    "id": "21342545",
+                    "code": "test",
+                    "name": "test",
+                    "enName": "test",
+                    "required": false,
+                    "unique": false,
+                    "defaultValue": "",
+                    "maxsize": 256,
+                    "type": "STRING",
+                    "primary": false,
+                    "pxh": 128,
+                    "range": null,
+                    "defination": null,
+                    "maxContains": 1,
+                    "comments": null,
+                    "security": 5
+                }
+            ],
+            "bmid": null,
+            "fullbmid": null
+        }
+    ],
+    "otherData": null,
+    "message": "获取模型信息成功"
+}

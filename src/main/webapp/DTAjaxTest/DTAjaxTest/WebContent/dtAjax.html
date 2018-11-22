@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DTAjax</title>
+	<link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.min.css">
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/jquery.dataTables.min.js"></script>
+
+</head>
+<body>
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+            <th>ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Start date</th>
+                <th>Office</th>
+                <th>Extn.</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+            <th>ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Start date</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                
+                
+            </tr>
+        </tfoot>
+    </table>
+</body>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "ajax": "./data.txt",
+        "columns": [
+        	{ "data": "id" },
+            { "data": "name" },
+            { "data": "position" },
+            { "data": "salary" },
+            { "data": "start_date" },
+            { "data": "office" },
+            
+            
+            { "data": "extn" },
+        ]
+    } );
+} );
+</script>
+
+</html>

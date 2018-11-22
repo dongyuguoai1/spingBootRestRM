@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DTAjax</title>
+	<link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/dataTables.bootstrap.min.css">
+        <script src="./js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/jquery.dataTables.min.js"></script>
+
+</head>
+<body>
+<button type="button" id="batch-edit-btn">批量编辑</button>
+  <button type="button" id="batch-save-btn">批量保存</button>
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+            <th>ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Start date</th>
+                <th>Office</th>
+                <th>Extn.</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+            <th>ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Start date</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                
+                
+            </tr>
+        </tfoot>
+    </table>
+</body>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "ajax": "./data.txt",
+        "columns": [
+        	{ "data": "id" },
+            { "data": "name" },
+            { "data": "position" },
+            { "data": "salary" },
+            { "data": "start_date" },
+            { "data": "office" },
+            
+            
+            { "data": "extn" },
+            { "data": null,
+              "render": function (data, type, row, meta) {
+                    return data = '<button type="button"  class="edit-btn" >编辑</button>'     
+                }}
+        ]
+});
+
+
+
+} );
+</script>
+
+</html>

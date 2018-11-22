@@ -1,0 +1,6 @@
+{
+    "resultCode": "RESULT_NOT_EXIST",
+    "data": [],
+    "otherData": null,
+    "message": "未找到相应表信息"
+}

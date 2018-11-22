@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>模型与审核</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- <link href="./css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- Font Awesome -->
+    <!-- <link href="./css/font-awesome.min.css" rel="stylesheet"> -->
+    <!-- Theme style -->
+    <!-- <link href="./css/AdminLTE.min.css" rel="stylesheet"> -->
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect. -->
+    <!-- <link href="./css/skin-blue.min.css" rel="stylesheet"> -->
+
+    <link href="./css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="./css/metroStyle.css" rel="stylesheet">
+    <link href="./css/spop.min.css" rel="stylesheet">
+    <!-- <link href="./css/dataTables_thead.css" rel="stylesheet"> -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- <link href="./css/dataTables_thead.css" rel="stylesheet"> -->
+</head>
+
+<body>
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#module" data-toggle="tab">模型中心</a>
+                    </li>
+                    <li>
+                        <a href="#catalog" data-toggle="tab">审核中心</a>
+                    </li>
+                </ul>
+                <div id="tab_top" class="tab-content">
+                    <div class="active tab-pane" id="module">
+                        <div class="box-header">
+                            <div class="pull-right-container">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#plusModal">新增模型&nbsp;
+                                            <i class="fa fa-plus-square"></i>
+                                        </button>
+                                        <div class="modal fade" id="plusModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog" style="width: 80%">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" onclick="cleanaddmodule('#plusModal')">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            <span class="sr-only">Close</span>
+                                                        </button>
+                                                        <h4 class="modal-title" id="myModalLabel">新建模型</h4>
+                                                    </div>
+                                                    <div id="addModal" class="modal-body">
+                                                        <!-- Custom Tabs -->
+                                                        <div class="nav-tabs-custom">
+                                                            <ul class="nav nav-tabs">
+                                                                <li id="plusModal_tab_1Active" class="active">
+                                                                    <a href="#plusModal_tab_1" data-toggle="tab">基础信息</a>
+                                                                </li>
+                                                                <li id="plusModal_tab_2Active">
+                                                                    <a href="#plusModal_tab_2" data-toggle="tab">属性详情</a>
+                                                                </li>
+                                                            </ul>
+                                                            <div id="addwarning" class="tab-content">
+                                                                <div class="tab-pane active" id="plusModal_tab_1">
+                                                                    <div class="box-body">
+                                                                        <div class="row">
+                                                                            <div class="col-md-3">
+                                                                                <div id="plusModal_addcode_div" class="form-group">
+                                                                                    <label>编码
+                                                                                        <span style="color:red">*</span>
+                                                                                    </label>
+                                                                                    <input type="text" id="plusModal_addcode" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- /.form-group -->
+                                                                            <div class="col-md-3">
+                                                                                <div id="plusModal_addname_div" class="form-group">
+                                                                                    <label>模型中文名称</label>
+                                                                                    <input type="text" id="plusModal_addname" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- /.form-group -->
+
+                                                                            <!-- /.col -->
+                                                                            <div class="col-md-3">
+                                                                                <div id="plusModal_addenName_div" class="form-group">
+                                                                                    <label>模型英文名称</label>
+                                                                                    <input type="text" id="plusModal_addenName" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- /.form-group -->
+
+                                                                            <div class="col-md-3">
+                                                                                <div id="plusModal_addbmid_div" class="form-group">
+                                                                                    <label>编目ID
+                                                                                        <span style="color:red">*</span>
+                                                                                    </label>
+                                                                                    <input type="text" id="plusModal_addbmid" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- /.form-group -->
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div id="plusModal_adddescription_div" class="form-group">
+                                                                                    <label>备注</label>
+                                                                                    <textarea id="plusModal_adddescription" class="form-control" rows="3" style="resize: vertical"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tab-pane" id="plusModal_tab_2">
+
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <button type="button" class="btn btn-primary" onclick="addtr('#plusModal_mytable')">新增属性&nbsp;
+                                                                        <i class="fa fa-plus-square"></i>
+                                                                    </button>
+                                                                    <div class="box-body">
+
+
+
+                                                                        <form id="plusModal_myform">
+                                                                            <div id="plusModal_mytablediv" style="white-space: nowrap;overflow: hidden;overflow-x: scroll;">
+                                                                                <table id="plusModal_mytable" class="table table-bordered table-striped">
+
+                                                                                    <tr>
+                                                                                        <th class="odd">操作</th>
+                                                                                        <th class="odd" align="center">密级</th>
+                                                                                        <!-- <th class="odd" >特征分类</th> -->
+                                                                                        <th width="20%">中文名称</th>
+                                                                                        <th class="odd">英文名称</th>
+                                                                                        <th class="odd">编码
+                                                                                            <span style="color:red">*</span>
+                                                                                        </th>
+                                                                                        <th class="odd">定义</th>
+                                                                                        <th class="odd">元数据类型
+                                                                                            <span style="color:red">*</span>
+                                                                                        </th>
+                                                                                        <th class="odd">长度
+                                                                                            <span style="color:red">*</span>
+                                                                                        </th>
+                                                                                        <th class="odd">域/值域</th>
+                                                                                        <th class="odd">是否必填</th>
+                                                                                        <th class="odd">是否唯一</th>
+                                                                                        <!-- <th class="odd" width=15%>其他来源</th> -->
+                                                                                        <th class="odd">最大出现次数
+                                                                                            <span style="font-size: 1px;color:#D98719">(默认为1)</span>
+                                                                                        </th>
+                                                                                        <th class="odd">备注</th>
+                                                                                        <!-- <th class="odd">排序号
+                                                                                            <span style="font-size: 1px;color:#D98719">(默认添加顺序)</span>
+                                                                                        </th> -->
+                                                                                    </tr>
+
+                                                                                </table>
+                                                                            </div>
+                                                                            <!-- <div class="button_area_absolute">
+                                                                                <table width="90%">
+                                                                                </table>
+                                                                            </div> -->
+                                                                        </form>
+
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /.tab-pane -->
+                                                            </div>
+                                                            <!-- /.tab-content -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                            <button id="plusModal_close_addmodal" type="button" class="btn btn-default" onclick="cleanaddmodule('#plusModal')">关闭</button>
+                                                        </a>
+                                                        <button id="plusModal_addmodule_but" type="submit" class="btn btn-primary" onclick="addmodule_btn('#plusModal','#plusModal_mytable')">提交</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-body" style="overflow :auto">
+                            <table id="example1" class="table table-bordered table-striped table-hover " style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th>模型编码</th>
+                                        <th>模型中文名</th>
+                                        <th>创建者</th>
+                                        <th>创建时间</th>
+                                        <th>更新时间</th>
+                                        <th>执行状态</th>
+                                        <th>操作</th>
+
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="modal fade" data-backdrop="static" id="modal_enter">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div id= "modal_enter_header" class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h4 class="modal-title">删除</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>是否确认删除此模型&hellip;</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                                        <button id="enter_delete" type="button" class="btn btn-primary">确认</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="cataModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" onclick="cleanaddmodule('#cataModal')">
+                                            <span aria-hidden="true">&times;</span>
+                                            <span class="sr-only">Close</span>
+                                        </button>
+                                        <h4 class="modal-title" id="myModalLabel">模型注册</h4>
+                                    </div>
+                                    <div id="cataModal_body" class="modal-body" style="overflow :auto">
+                                        <b>请选择您要注册的目录：</b>
+                                        <ul id="treeDemo" class="ztree"></ul>
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <button id="cataModal_close_modal" type="button" class="btn btn-default" onclick="cleanaddmodule('#cataModal')">关闭</button>
+
+                                        <button id="cataModal_module_but" type="submit" class="btn btn-primary">提交</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" style="width: 80%">
+                            <div class="modal-content">
+                                <div id="editModal_header" class="modal-header">
+                                    <button type="button" class="close" onclick="cleanaddmodule('#editModal')">
+                                        <span aria-hidden="true">&times;</span>
+                                        <span class="sr-only">Close</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">修改模型</h4>
+                                </div>
+                                <div id="edit_modal_1" class="modal-body">
+                                    <!-- Custom Tabs -->
+                                    <div class="nav-tabs-custom">
+                                        <ul class="nav nav-tabs">
+                                            <li id="editModal_tab_1Active" class="active">
+                                                <a href="#editModal_tab_1" data-toggle="tab">基础信息</a>
+                                            </li>
+                                            <li id="editModal_tab_2Active">
+                                                <a href="#editModal_tab_2" data-toggle="tab">属性详情</a>
+                                            </li>
+                                        </ul>
+                                        <div id="addwarning" class="tab-content">
+                                            <div class="tab-pane active" id="editModal_tab_1">
+                                                <div id="editModal_tab_body" class="box-body">
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <div id="editModal_addcode_div" class="form-group">
+                                                                <label>编码
+                                                                    <span style="color:red">*</span>
+                                                                </label>
+                                                                <input type="text" id="editModal_addcode" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div id="editModal_addname_div" class="form-group">
+                                                                <label>模型中文名称</label>
+                                                                <input type="text" id="editModal_addname" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div id="editModal_addenName_div" class="form-group">
+                                                                <label>模型英文名称</label>
+                                                                <input type="text" id="editModal_addenName" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div id="editModal_addbmid_div" class="form-group">
+                                                                <label>编目ID
+                                                                    <span style="color:red">*</span>
+                                                                </label>
+                                                                <input type="text" id="editModal_addbmid" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div id="editModal_adddescription_div" class="form-group">
+                                                                <label>备注</label>
+                                                                <textarea id="editModal_adddescription" class="form-control" rows="3" style="resize: vertical"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="ztree_edit">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="editModal_tab_2">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-primary" onclick="addtr('#editModal_mytable')">新增属性&nbsp;
+                                                    <i class="fa fa-plus-square"></i>
+                                                </button>
+                                                <div class="box-body">
+                                                    <form id="editModal_myform">
+                                                        <div id="editModal_mytablediv" style="white-space: nowrap;overflow: hidden;overflow-x: scroll;">
+                                                            <table id="editModal_mytable" class="table table-bordered table-striped">
+
+                                                                <tr>
+                                                                    <th class="odd">操作</th>
+                                                                    <th class="odd" align="center">密级</th>
+                                                                    <!-- <th class="odd" >特征分类</th> -->
+                                                                    <th width="20%">中文名称</th>
+                                                                    <th class="odd">英文名称</th>
+                                                                    <th class="odd">编码
+                                                                        <span style="color:red">*</span>
+                                                                    </th>
+                                                                    <th class="odd">定义</th>
+                                                                    <th class="odd">元数据类型
+                                                                        <span style="color:red">*</span>
+                                                                    </th>
+                                                                    <th class="odd">长度
+                                                                        <span style="color:red">*</span>
+                                                                    </th>
+                                                                    <th class="odd">域/值域</th>
+                                                                    <th class="odd">是否必填</th>
+                                                                    <th class="odd">是否唯一</th>
+                                                                    <!-- <th class="odd" width=15%>其他来源</th> -->
+                                                                    <th class="odd">最大出现次数
+                                                                        <span style="font-size: 1px;color:#D98719">(默认为1)</span>
+                                                                    </th>
+                                                                    <th class="odd">备注</th>
+                                                                    <!-- <th class="odd">排序号
+                                                                        <span style="font-size: 1px;color:#D98719">(默认添加顺序)</span>
+                                                                    </th> -->
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                        <!-- <div class="button_area_absolute">
+                                                            <table width="90%">
+                                                            </table>
+                                                        </div> -->
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        <button id="editModal_close_addmodal" type="button" class="btn btn-default" onclick="cleanaddmodule('#editModal')">关闭</button>
+                                    </a>
+                                    <button id="editModal_addmodule_but" type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="checkModal" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" style="width: 80%">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" onclick="cleanaddmodule('#checkModal')">
+                                        <span aria-hidden="true">&times;</span>
+                                        <span class="sr-only">Close</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">查看模型</h4>
+                                </div>
+                                <div id="check_modal_1" class="modal-body">
+                                    <div class="nav-tabs-custom">
+                                        <ul class="nav nav-tabs">
+                                            <li id="checkModal_tab_1Active" class="active">
+                                                <a href="#checkModal_tab_1" data-toggle="tab">基础信息</a>
+                                            </li>
+                                            <li id="checkModal_tab_2Active">
+                                                <a href="#checkModal_tab_2" data-toggle="tab">属性详情</a>
+                                            </li>
+                                        </ul>
+                                        <div id="addwarning" class="tab-content">
+
+                                            <div class="tab-pane active" id="checkModal_tab_1">
+
+
+
+                                                <div class="box-body">
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <div id="checkModal_addcode_div" class="form-group">
+                                                                <label>编码
+                                                                    <span style="color:red">*</span>
+                                                                </label>
+                                                                <input type="text" id="checkModal_addcode" class="form-control">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-3">
+                                                            <div id="checkModal_addname_div" class="form-group">
+                                                                <label>模型中文名称</label>
+                                                                <input type="text" id="checkModal_addname" class="form-control">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-3">
+                                                            <div id="checkModal_addenName_div" class="form-group">
+                                                                <label>模型英文名称</label>
+                                                                <input type="text" id="checkModal_addenName" class="form-control">
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-3">
+                                                            <div id="checkModal_addbmid_div" class="form-group">
+                                                                <label>编目ID
+                                                                    <span style="color:red">*</span>
+                                                                </label>
+                                                                <input type="text" id="checkModal_addbmid" class="form-control">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div id="checkModal_adddescription_div" class="form-group">
+                                                                <label>备注</label>
+                                                                <textarea id="checkModal_adddescription" class="form-control" rows="3" style="resize: vertical"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label>注册的目录</label>
+                                                            <div class="direct-chat-messages">
+
+
+
+                                                                <ul id="treeDemo2" class="ztree"></ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+
+                                                            <div id="checkModal_adddescription_div" class="form-group">
+                                                                <label>审核意见</label>
+                                                                <textarea id="checkModal_message" class="form-control" rows="3" style="resize: vertical"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane" id="checkModal_tab_2">
+                                                <div class="box-body">
+                                                    <form id="checkModal_myform">
+                                                        <div id="checkModal_mytablediv" style="white-space: nowrap;overflow: hidden;overflow-x: scroll;">
+                                                            <table id="checkModal_mytable" class="table table-bordered table-striped table-hover">
+
+                                                                <tr>
+
+                                                                    <th class="odd" align="center">密级</th>
+                                                                    <!-- <th class="odd" >特征分类</th> -->
+                                                                    <th width="20%">中文名称</th>
+                                                                    <th class="odd">英文名称</th>
+                                                                    <th class="odd">编码
+                                                                        <span style="color:red">*</span>
+                                                                    </th>
+                                                                    <th class="odd">定义</th>
+                                                                    <th class="odd">元数据类型
+                                                                        <span style="color:red">*</span>
+                                                                    </th>
+                                                                    <th class="odd">长度
+                                                                        <span style="color:red">*</span>
+                                                                    </th>
+                                                                    <th class="odd">域/值域</th>
+                                                                    <th class="odd">是否必填</th>
+                                                                    <th class="odd">是否唯一</th>
+                                                                    <!-- <th class="odd" width=15%>其他来源</th> -->
+                                                                    <th class="odd">最大出现次数
+                                                                        <span style="font-size: 1px;color:#D98719">(默认为1)</span>
+                                                                    </th>
+                                                                    <th class="odd">备注</th>
+                                                                    <!-- <th class="odd">排序号
+                                                                        <span style="font-size: 1px;color:#D98719">(默认为1)</span>
+                                                                    </th> -->
+
+                                                                </tr>
+
+                                                            </table>
+                                                        </div>
+
+                                                        <!-- <div class="button_area_absolute">
+                                                            <table width="90%">
+                                                                <!-- <tr> 
+                                                        <td align=center><a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="savemyinfo()"><span key="save" class="paltform-my">保存</span></a></td> 
+                                                        </tr>  
+                                                            </table>
+                                                        </div> -->
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                            <!-- /.tab-pane -->
+                                        </div>
+                                        <!-- /.tab-content -->
+                                    </div>
+                                    <!-- nav-tabs-custom -->
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        <button id="checkModal_close_addmodal" type="button" class="btn btn-default" onclick="cleanaddmodule('#checkModal')">关闭</button>
+                                    </a>
+                                    <!-- <button id="checkModal_addmodule_but" type="submit" class="btn btn-primary">提交</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" data-backdrop="static" id="modal_check">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" onclick="cleanmodal_check('#modal_check')">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title">审核</h4>
+                                </div>
+                                <div id="modal_check_body" class="modal-body">
+                                    <div id="modal_check_message_div" class="form-group">
+                                        <label>审核意见：</label>
+                                        <textarea id="modal_check_message" class="form-control" rows="3" style="resize: vertical"></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="reject_check" type="button" class="btn btn-default pull-left">拒绝</button>
+                                    <button id="enter_check" type="button" class="btn btn-primary">同意</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="catalog">
+
+                        <div class="box-body" style="overflow :auto">
+
+                            <table id="example2" class="table table-bordered table-striped table-hover" style="width: 100% !important;" >
+                                <thead>
+                                    <tr>
+                                        <th >模型编码</th>
+                                        <!-- <th>模型中文名</th> -->
+                                        <!-- <th>模型创建者</th> -->
+                                        <th >申请提交者</th>
+                                        <th >申请提交时间</th>
+                                        <th >申请操作</th>
+                                        <th >审核人</th>
+                                        <!-- <th>模型状态</th> -->
+                                        <th >操作</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.tab-pane -->
+
+            </div>
+            <!-- /.tab-content -->
+        </div>
+        <!-- /.nav-tabs-custom -->
+    </div>
+    <!-- /.col -->
+
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <!-- jQuery 3 -->
+    <!-- <script src="./js/jquery.min.js"></script> -->
+    <!-- Bootstrap 3.3.7 -->
+    <!-- <script src="./js/bootstrap.min.js"></script> -->
+    <!-- AdminLTE App -->
+    <script src="./js/adminlte.js"></script>
+    <!-- <script src="./js/demo.js"></script> -->
+    <!-- <script src="./js/fastclick.js"></script> -->
+    <!-- <script src="./js/adminlte.js"></script> -->
+    <!-- <script src="./js/jquery.slimscroll.min.js"></script> -->
+
+    <!-- put your locale files after bootstrap-table.js -->
+    <script src="./js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="./js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+    <script src="./js/tableHandle.js" type="text/javascript"></script>
+    <script src="./js/modelHandle.js" type="text/javascript"></script>
+    <script src="./js/auditHandle.js" type="text/javascript"></script>
+    <script src="./js/jquery.ztree.all.min.js" type="text/javascript"></script>
+    <script src="./js/spop.min.js" type="text/javascript"></script>
+    <!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+</body>
+
+</html>

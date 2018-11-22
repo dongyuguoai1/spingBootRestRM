@@ -1,0 +1,91 @@
+<div class="box box-success">
+				<div class="box-header with-border">
+					<h3 class="box-title">数据资源查看</h3>
+					<!-- <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div> -->
+					<!-- /.box-tools -->
+				</div>
+				<!-- /.box-header -->
+				<div id="box2-body" class="box-body">
+
+					<!-- info row ca195a 008d4c #D81B60 d33724-->
+					<div class="row" style="padding-bottom: 10px;padding-top: 15px">
+						<div class="col-md-12">
+							<p>
+								<a href="javascript:void(0)" style="font-size: 18px;color:#ca195a">表名或者模型名表名或者模型名</a>
+								<a href="javascript:void(0)" style="color:#357ca5">申请授权</a>
+							</p>
+							<div class="row" style="margin-bottom: 10px;margin-left: 0;margin-right: 0">
+								<div class="col-md-2" style="padding: 0px;">数据资源种类：表</div>
+								<div class="col-md-2" style="padding: 0px;">所有者：XXX</div>
+								<div class="col-md-2" style="padding: 0px;">最近更新时间：</div>
+							</div>
+							<p>描述：</p>
+							<p>
+								<span>标签：</span>
+								<span class="label label-info">Javascript</span>
+								<span class="label label-primary">Node.js</span>
+							</p>
+						</div>
+					</div>
+					<hr style="margin-bottom: 0px;margin-top: 0px">
+					<div class="row" style="padding-bottom: 10px;padding-top: 15px">
+						<div class="col-md-12">
+							<p>
+								<a href="javascript:void(0)" style="font-size: 18px;color:#ca195a">表名或者模型名表名或者模型名</a>
+								<a href="javascript:void(0)" style="color:#357ca5">申请授权</a>
+							</p>
+							<div class="row" style="margin-bottom: 10px;margin-left: 0;margin-right: 0">
+								<div class="col-md-2" style="padding: 0px;">数据资源种类：表</div>
+								<div class="col-md-2" style="padding: 0px;">所有者：XXX</div>
+								<div class="col-md-2" style="padding: 0px;">最近更新时间：</div>
+							</div>
+							<p>描述：</p>
+							<p>
+								<span>标签：</span>
+								<span class="label label-info">Javascript</span>
+								<span class="label label-primary">Node.js</span>
+							</p>
+						</div>
+					</div>
+					<hr style="margin-bottom: 0px;margin-top: 0px">
+					<div class="row" style="padding-bottom: 10px;padding-top: 15px">
+						<div class="col-md-12">
+							<p>
+								<a href="javascript:void(0)" style="font-size: 18px;color:#ca195a">表名或者模型名表名或者模型名</a>
+								<a href="javascript:void(0)" style="color:#357ca5">申请授权</a>
+							</p>
+							<div class="row" style="margin-bottom: 10px;margin-left: 0;margin-right: 0">
+								<div class="col-md-2" style="padding: 0px;">数据资源种类：表</div>
+								<div class="col-md-2" style="padding: 0px;">所有者：XXX</div>
+								<div class="col-md-2" style="padding: 0px;">最近更新时间：</div>
+							</div>
+							<p>描述：</p>
+							<p>
+								<span>标签：</span>
+								<span class="label label-info">Javascript</span>
+								<span class="label label-primary">Node.js</span>
+							</p>
+						</div>
+					</div>
+					<hr style="margin-bottom: 0px;margin-top: 0px">
+				</div>
+				<!-- /.box-body -->
+			</div>
+
+
+
+
+
+(SELECT model_id FROM tb_datamap_category WHERE label_id='6-1')
+
+(SELECT model_id FROM tb_datamap_category WHERE label_id='6-2' and in (SELECT model_id FROM tb_datamap_category WHERE label_id='6-1')
+
+(SELECT model_id FROM tb_datamap_category WHERE label_id='6-3' and in (SELECT model_id FROM tb_datamap_category WHERE label_id='6-2' and in (SELECT model_id FROM tb_datamap_category WHERE label_id='6-1')))
+
+
+
+(SELECT model_id FROM tb_datamap_category WHERE label_id='6-3' and model_id in (SELECT model_id FROM tb_datamap_category WHERE label_id='6-2' and model_id in (SELECT model_id FROM tb_datamap_category WHERE label_id='6-1')))

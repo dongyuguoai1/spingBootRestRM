@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>资源列表</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+  <!-- Font Awesome -->
+  <!-- <link rel="stylesheet" href="./css/font-awesome.min.css"> -->
+  <!-- Ionicons -->
+  <!-- <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css"> -->
+  <!-- Theme style -->
+  <!-- <link rel="stylesheet" href="./css/AdminLTE.min.css"> -->
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+          page. However, you can choose any other skin. Make sure you
+          apply the skin class to the body tag so the changes take effect. -->
+  <!-- <link rel="stylesheet" href="./css/skin-blue.min.css"> -->
+
+  <link href="./css/bootstrap-table.min.css" rel="stylesheet">
+  <!-- <link href="./css/del-border-radius.css" rel="stylesheet"> -->
+  <link href="./css/filter-style.css" rel="stylesheet">
+  <link href="./css/icheck_blue.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <!-- Google Font 
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+          -->
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+
+<body>
+  <div class="row clearfix">
+    <div class="col-sm-3 col-md-3 column">
+      <div id="tree">
+      </div>
+    </div>
+    <div class="col-sm-9 col-md-9 column">
+      <!-- <div class="box box-warning"> -->
+      <div id="alert-info1" class="alert alert-info alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4>
+          <i class="icon fa fa-info"></i> 查询模式</h4>
+        当前为
+        <b>“标签查询”</b>模式。点击标签将会筛选出被该标签标注的资源,在该模式下可以批量取消资源的标签。
+      </div>
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">维度过滤</h3>
+          <div class="box-tools pull-right">
+            <label>
+              <input id="checkbox1" type="checkbox" class="minimal"> 进入标注模式
+            </label>
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+          </div>
+          <!-- /.box-tools -->
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div id="filter">
+            <ul class="select">
+              <li class="select-list" v-for="(item1,index1) in classifyTag">
+                <dl>
+                  <dt>{{item1.list_name}}&nbsp;</dt>
+                  <!-- <template v-for="(item2,index2) in classifyTag[index1].list_items"> -->
+                  <dd class="selected select-all" v-bind:class="item1.list_id">
+                    <a href="#">全部</a>
+                  </dd>
+                  <dd v-bind:class="item1.list_id" v-for="(item2,index2) in classifyTag[index1].list_items">
+                    <a href="#">{{item2.name}}</a>
+                    <span style="display:none">{{item2.id}}</span>
+                  </dd>
+                  <!-- </template> -->
+                </dl>
+              </li>
+              <li class="free-list">
+                <dl>
+                  <dt>{{freeTag.list_name}}&nbsp;</dt>
+                  <dd v-bind:class="item3.id" v-for="(item3,index3) in freeTag.list_items">
+                    <a href="#">{{item3.name}}</a>
+                    <span style="display:none">{{item3.id}}</span>
+                  </dd>
+                </dl>
+              </li>
+              <li class="select-result">
+                <dl>
+                  <dt>已选条件：</dt>
+                  <dd class="select-no" style="height: 24px">
+                    暂时没有选择过滤条件</dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+      <!-- <div class="box box-danger"> -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">搜索</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+          </div>
+          <!-- /.box-tools -->
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="form-inline">
+            <label>模型id：</label>
+            <input id="input_search1" type="text" value="" style="width:15%;height:34px" class="form-control">
+            <label>模型标识：</label>
+            <input id="input_search2" type="text" value="" style="width:15%;height:34px" class="form-control">
+            <label>模型名称：</label>
+            <input id="input_search3" type="text" value="" style="width:15%;height:34px" class="form-control">&nbsp;&nbsp;&nbsp;&nbsp;
+            <button id="btn_search" type="button" class="btn btn-primary btn-flat">
+              <i class="fa fa-search"></i> 搜索</button>
+          </div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+      <!-- <div class="box box-success"> -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">数据查看</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+          </div>
+          <!-- /.box-tools -->
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div id="toolbar" class="btn-group">
+            <!-- <button id="btn_select" type="button" class="btn btn-primary btn-flat">
+              <i class="fa fa-list"></i>
+              查看
+            </button> -->
+            <button id="btn_select" type="button" class="btn btn-default">
+              <span class="glyphicon glyphicon-list" aria-hidden="true"></span> 查看详情
+            </button>
+            <button id="btn_tag" type="button" class="btn btn-default">
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 添加标签
+            </button>
+            <button id="btn_delete" type="button" class="btn btn-default">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除标签
+            </button>
+          </div>
+          <table id="tb_departments"></table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+  </div>
+  <!-- REQUIRED JS SCRIPTS -->
+
+  <!-- jQuery 3 -->
+  <!-- <script src="./js/jquery-3.2.1.min.js"></script> -->
+  <!-- Bootstrap 3.3.7 -->
+  <!-- <script src="./js/bootstrap.min.js"></script> -->
+  <!-- <script>
+    console.log("AdminLTEOptions");
+    var AdminLTEOptions = {
+      //Box Widget Plugin. Enable this plugin
+      //to allow boxes to be collapsed and/or removed
+      enableBoxWidget: true,
+      //Box Widget plugin options
+      boxWidgetOptions: {
+        boxWidgetIcons: {
+          //Collapse icon
+          collapse: 'fa-minus',
+          //Open icon
+          open: 'fa-plus',
+          //Remove icon
+          remove: 'fa-times'
+        },
+        boxWidgetSelectors: {
+          //Remove button selector
+          remove: '[data-widget="remove"]',
+          //Collapse button selector
+          collapse: '[data-widget="collapse"]'
+        }
+      }
+    };
+  </script> -->
+  <!-- AdminLTE App -->
+  <script src="./js/adminlte.js"></script>
+
+  <!-- put your locale files after bootstrap-table.js -->
+  <script src="./js/bootstrap-treeview.min.js" type="text/javascript"></script>
+  <script src="./js/bootstrap-table.min.js"></script>
+  <script src="./js/bootstrap-table-zh-CN.min.js"></script>
+  <script src="./js/icheck.min.js" type="text/javascript"></script>
+  <script src="./js/vue.js" type="text/javascript"></script>
+  <script src="./js/data_list.js" type="text/javascript"></script>
+  <script src="./js/vfilter.js" type="text/javascript"></script>
+
+
+  <!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+
+
+</body>
+
+</html>
