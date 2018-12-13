@@ -1,0 +1,96 @@
+
+<html>
+ 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>标准管理</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="./css/font-awesome.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="./css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="./css/jquery.dataTables.css">
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="./css/AdminLTE.min.css">
+  
+    <link rel="stylesheet" href="./css/skin-blue.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/metroStyle.css" />
+</head>
+<body>
+<!-- Content Wrapper. Contains page content -->
+
+
+
+      <section class="content">
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-3 connectedSortable">
+            <!-- zTree box -->
+            <div class="box">
+              <div class="box-header">
+                <h3 class="box-title">
+                  <i class="fa icon-grid"></i> 标准目录
+                </h3>
+              </div>
+              <div class="box-body">
+                <ul id="tree" class="ztree" style="width:15%; "></ul>
+              </div>
+            </div>
+            <!-- ./zTree box -->
+          </section>
+          <!-- ./left col -->
+          <!-- right col -->
+          <section class="col-lg-9 connectedSortable">
+            <div class="box">
+              <div class="box-header with-border" style="width: auto">
+                <div class="box-title">
+                  <i class="fa icon-grid"></i> 标准信息
+
+                </div>
+                <div class="box-tools pull-right">
+
+                </div>
+              </div>
+
+              <div class="box-body">
+
+                <!-- datatable -->
+                <table id="bzckDT" class="table table-bordered table-hover" width="100%">
+
+                </table>
+                <!-- ./datatable -->
+              </div>
+            </div>
+          </section>
+          <!-- ./right col -->
+        </div>
+        <!-- ./main row -->
+      </section>
+      <!-- /.content -->
+
+    
+    <script src="./js/jquery.min.js"></script>
+
+    <!-- Bootstrap 3.3.7 -->
+    <script src="./js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+
+    <script src="./js/adminlte.js"></script>
+    <!-- DataTables -->
+    <script src="./js/jquery.dataTables.min.js"></script>
+    <script src="./js/dataTables.bootstrap.min.js"></script>
+    <!-- ztree -->
+    <script type="text/javascript" src="./js/jquery.ztree.all.js"></script>
+
+    <!-- my ztree_setting  -->
+    <script type="text/javascript" src="./js/bzgl_bzck.js"> </script>
+    
+    </body>
+ 
+</html>

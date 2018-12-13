@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>标签标记</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="./css/font-awesome.min.css" rel="stylesheet">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <!-- <link href="./css/icheck_blue.css" rel="stylesheet"> -->
+    <!-- DataTables -->
+    <!-- <link href="./css/dataTables.bootstrap.min.css" rel="stylesheet"> -->
+    <link href="./css/select2.min.css" rel="stylesheet">
+    <!-- Theme style -->
+    <link href="./css/AdminLTE.min.css" rel="stylesheet">
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect. -->
+    <link href="./css/skin-blue.min.css" rel="stylesheet">
+    
+    <link href="./css/jquery.toast.min.css" rel="stylesheet">
+    <!-- <link href="./css/AdminLTE-select2.min.css" rel="stylesheet"> -->
+    <!-- <link href="./css/filter-style.css" rel="stylesheet"> -->
+    <!-- <link href="./css/dataTables_thead.css" rel="stylesheet"> -->
+</head>
+
+<body>
+    <div class="row clearfix">
+        <div class="col-sm-3 col-md-3 column">
+            <div id="tree">
+            </div>
+        </div>
+        <div class="col-sm-9 col-md-9 column">
+            <div class="box box-primary">
+                <div class="box-header with-border text-center">
+                    <div class="btn-group">
+                        <!-- <button type="button" class="btn btn-default" data-btn-type="addRoot">
+                            <li class="fa fa-plus">&nbsp;新增根机构</li>
+                        </button> -->
+                        <button type="button" class="btn btn-default" id="addSubCategory">
+                            <li class="fa fa-plus">&nbsp;新增下级目录</li>
+                        </button>
+                        <button type="button" class="btn btn-default" id="editCategory">
+                            <li class="fa fa-edit">&nbsp;编辑当前目录</li>
+                        </button>
+                        <button type="button" class="btn btn-default" id="delectCategory">
+                            <li class="fa fa-remove">&nbsp;删除当前目录</li>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <form class="form-horizontal bv-form" id="org-form" novalidate="novalidate">
+                        <!-- <input type="hidden" id="id" name="id" value="8a8a80f05cbef2d8015cbf20bc680003">
+                        <input type="hidden" name="version" value="2">
+                        <input type="hidden" name="createDateTime" data-flag="date" data-format="yyyy-mm-dd hh:ii:ss" value="2017-06-19 14:53:32">
+                        <input type="hidden" name="parentId" value="8a8a80f05cbef2d8015cbf15254c0001"> -->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">上级目录</label>
+
+                            <div class="col-sm-9">
+                                    <select class="form-control select2" id="selectCategorys" style="width: 100%;"> </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-2 control-label">名称</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="categoryName"  disabled="disabled" name="categoryName" placeholder="名称" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-2 control-label">编目ID</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="categoryBMid" disabled="disabled"  name="categoryBMid" placeholder="编目ID" autocomplete="off">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-2 control-label">排序号</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="categorypxh"  disabled="disabled" name="categorypxh" placeholder="排序号默认为1" autocomplete="off">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-2 control-label">创建时间</label>
+
+                            <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="categoryCreateTime" disabled="disabled" name="categoryCreateTime"  autocomplete="off">
+                                </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                                <label class="col-sm-2 control-label">创建者</label>
+    
+                                <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="categoryCreator" disabled="disabled" name="categoryCreator"  autocomplete="off">
+                                    </div>
+                        </div>
+                        <div class="box-footer" style="display: block;">
+                            <div class="text-center" id="box_footer">
+                                
+                            </div>
+                        </div>
+                    <input type="hidden" value=""></form>
+                </div>
+                <div class="modal fade" data-backdrop="static" id="modal_enter">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div id="modal_enter_header" class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title">删除</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>是否确认删除此目录&hellip;</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                                    <button id="enter_delete" type="button" class="btn btn-primary">确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- /.box-body -->
+                <!-- <div class="box-footer text-center">
+                  
+                </div> -->
+                <!-- /.box-footer -->
+              </div>
+        </div>
+    </div>
+
+    <!-- REQUIRED JS SCRIPTS -->
+    <!-- jQuery 3 -->
+    <!-- <script src="./js/jquery.min.js"></script> -->
+    <!-- Bootstrap 3.3.7 -->
+    <!-- 重复引用bootstrap.min.js会导致界面下拉菜单消息不相应 -->
+    <!-- <script src="./js/bootstrap.min.js"></script> -->
+    <!-- AdminLTE App -->
+    <script src="./js/adminlte.js"></script>
+
+    <!-- put your locale files after bootstrap-table.js -->
+    <script src="./js/bootstrap-treeview.min.js" type="text/javascript"></script>
+    <!-- <script src="./js/icheck.min.js" type="text/javascript"></script> -->
+    <!-- <script src="./js/jquery.dataTables.min.js" type="text/javascript"></script> -->
+    <!-- <script src="./js/dataTables.bootstrap.min.js" type="text/javascript"></script> -->
+    <!-- <script src="./js/vue.js" type="text/javascript"></script> -->
+    <!-- <script src="./myjs/vfilter.js" type="text/javascript"></script> -->
+    
+    <script src="./js/select2.min.js" type="text/javascript"></script>
+    <script src="./js/select2-zh-CN.js" type="text/javascript"></script>
+    <script src="./js/jquery.toast.min.js" type="text/javascript"></script>
+    <script src="./myjs/sub_category_edit.js" type="text/javascript"></script>
+    <!-- <script src="./myjs/sub_category_editInit.js" type="text/javascript"></script> -->
+    <!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+</body>
+
+</html>

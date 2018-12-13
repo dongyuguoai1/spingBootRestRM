@@ -1,0 +1,70 @@
+{
+    "resultCode": "RESULT_SUCCESS",
+    "data": [
+        {
+            "id": "0",
+            "name": "c.(目录).ab",
+            "parentId": "",
+            "creator": "1",
+            "createTime": "2017-12-14 21:05:35",
+            "bmid": "0",
+            "fullbmid": ""
+        },
+        {
+            "id": "1513345907776",
+            "name": "一级库1",
+            "parentId": "0",
+            "creator": "1",
+            "createTime": "2017-12-15 21:51:47",
+            "bmid": "YJK",
+            "fullbmid": "BJZZXSJK"
+        },
+        {
+            "id": "883012",
+            "name": "一级库2",
+            "parentId": "0",
+            "creator": "7",
+            "createTime": "2017-12-14 21:05:35",
+            "bmid": "YJK",
+            "fullbmid": "BJZZX"
+        },
+        {
+            "id": "889675",
+            "name": "一级库3",
+            "parentId": "883012",
+            "creator": "7",
+            "createTime": "2017-12-14 21:05:35",
+            "bmid": "YJK",
+            "fullbmid": "BJZZXYJK"
+        },
+        {
+            "id": "890239",
+            "name": "二级库",
+            "parentId": "0",
+            "creator": "7",
+            "createTime": "2017-12-14 21:05:53",
+            "bmid": "EJK",
+            "fullbmid": "BJZZXEJK"
+        },
+        {
+            "id": "891673",
+            "name": "信号",
+            "parentId": "889675",
+            "creator": "7",
+            "createTime": "2017-12-14 21:05:35",
+            "bmid": "XH",
+            "fullbmid": "BJZZXYJKXH"
+        },
+        {
+            "id": "895240",
+            "name": "信息",
+            "parentId": "889675",
+            "creator": "7",
+            "createTime": "2017-12-14 21:05:53",
+            "bmid": "XX",
+            "fullbmid": "BJZZXYJKXX"
+        }
+    ],
+    "otherData": null,
+    "message": null
+}

@@ -19,7 +19,7 @@ function format ( d ) {
  
 $(document).ready(function() {
     var table = $('#example').DataTable( {
-        "ajax": "/ztreeClick/data/data.json",
+        "ajax": "../data/data.json",
         "columns": [
             {
                 "className":      'details-control',

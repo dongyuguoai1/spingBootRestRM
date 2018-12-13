@@ -1,0 +1,61 @@
+{
+    "resultCode": "RESULT_SUCCESS",
+    "data": [
+        {
+            "id": "0df4ca19598fc459777f0d016611c2ce",
+            "code": "test121504",
+            "enName": "test121504",
+            "name": "测试121504",
+            "type": 0,
+            "createTime": "2017-12-15 00:16:19",
+            "createPerson": "1",
+            "updateTime": null,
+            "updatePerson": null,
+            "description": "测试121504",
+            "version": "20171215_001",
+            "registerStatus": "已注册",
+            "categoryId": "895240",
+            "fields": [],
+            "bmid": null,
+            "fullbmid": null
+        },
+		        {
+            "id": "111",
+            "code": "test121505",
+            "enName": "test121505",
+            "name": "测试121505",
+            "type": 0,
+            "createTime": "2017-12-15 00:16:30",
+            "createPerson": "2",
+            "updateTime": null,
+            "updatePerson": null,
+            "description": "测试121505",
+            "version": "20171215_002",
+            "registerStatus": "已注册",
+            "categoryId": "895241",
+            "fields": [],
+            "bmid": null,
+            "fullbmid": null
+        },
+		        {
+            "id": "222",
+            "code": "test121506",
+            "enName": "test121506",
+            "name": "测试121506",
+            "type": 0,
+            "createTime": "2017-12-15 00:16:50",
+            "createPerson": "3",
+            "updateTime": null,
+            "updatePerson": null,
+            "description": "测试121506",
+            "version": "20171215_003",
+            "registerStatus": "已注册",
+            "categoryId": "895243",
+            "fields": [],
+            "bmid": null,
+            "fullbmid": null
+        }
+    ],
+    "otherData": null,
+    "message": "获取表信息成功"
+}
